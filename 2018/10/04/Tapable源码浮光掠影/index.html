@@ -101,13 +101,15 @@
 <meta property="og:site_name" content="幸有我来山未孤">
 <meta property="og:description" content="经年不语，似有暮霭讳黄昏 Webpack是文件bundler。 文件打包，忖之，大概流程如下   既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。 有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack  做菜原料准备好，然后进入材料处理阶段。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/bundler.png">
-<meta property="og:image" content="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/tree.png">
-<meta property="og:updated_time" content="2018-10-08T06:40:57.248Z">
+<meta property="og:image" content="http://tmdss.github.io/images/bundler.png">
+<meta property="og:image" content="http://tmdss.github.io/images/tree.png">
+<meta property="og:image" content="http://tmdss.github.io/images/webpack/plugin.png">
+<meta property="og:image" content="http://tmdss.github.io/images/webpack/hooks.png">
+<meta property="og:updated_time" content="2018-10-08T06:54:34.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tapable源码浮光掠影">
 <meta name="twitter:description" content="经年不语，似有暮霭讳黄昏 Webpack是文件bundler。 文件打包，忖之，大概流程如下   既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。 有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack  做菜原料准备好，然后进入材料处理阶段。">
-<meta name="twitter:image" content="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/bundler.png">
+<meta name="twitter:image" content="http://tmdss.github.io/images/bundler.png">
 
 
 
@@ -335,7 +337,7 @@
         <p>经年不语，似有暮霭讳黄昏</p>
 <p>Webpack是文件bundler。</p>
 <p>文件打包，忖之，大概流程如下</p>
-<p><img src="./bundler.png" alt=""></p>
+<p><img src="/images/bundler.png" alt=""></p>
 <ul>
 <li><p>既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。</p>
 <p>有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS</p>
@@ -354,8 +356,10 @@
 <p>流程中的各个环节流转，如西伯利亚寒流南下，经过暖地，会带一些暖意，经过潮湿，会带几分湿气，在抵达我们住所的路上，可以加各种处理。每个环节都像有个钩子一样，可以挂上各种处理器，今天天气闷热，我们可以挂上寒冷的处理器，明天可以挂上和煦芬芳的处理。如此的流转体系，用户可以在任何环节挂载自定义的处理器，极高的扩展性。</p>
 <p>Webpack大抵如此，他的扩展体系所依托的实现库是：Tapable</p>
 <p>Tapable比上面描述得钩子更灵活，有点像树</p>
-<p><img src="./tree.png" alt=""></p>
+<p><img src="/images/tree.png" alt=""></p>
 <p>树干上有许多钩子可以挂载分支，分支又可以作为新的主干继续生成分支，子子孙孙可无穷尽，有些像分型。</p>
+<p><img src="/images/webpack/plugin.png" alt=""></p>
+<p><img src="/images/webpack/hooks.png" alt=""></p>
 <p>Tapable有两个大版本，webpack1-3使用T的0.x版，webpack4使用1.0版本，两版api不兼容，所以webpack4流程实现和插件实现里，常见两版的兼容代码。本文仅涉及1.0版本。</p>
 <p>Tapable的实现，类似订阅/发布模式（比如EventEmitter），每个钩子（hook）为一个可订阅的消息中心，webpack的每个plugin都可以进行订阅，在流程的适当时，会被触发，执行订阅者的处理逻辑。</p>
 <p>依订阅者们的执行方式不同，分为六种Hook（在lib/index.js中）：</p>
