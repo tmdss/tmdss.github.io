@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="经年不语，似有暮霭讳黄昏 Webpack是文件bundler。 文件打包，忖之，大概流程如下   既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。 有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack  做菜原料准备好，然后进入材料处理阶段。">
+<meta name="description" content="经年不语，似有暮霭讳黄昏 絮语 Webpack是文件bundler。 文件打包，忖之，大概流程如下   File Collector 既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。  有些，简单粗暴，直奔主题，扫描源目录，取源目录所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tapable源码浮光掠影">
-<meta property="og:url" content="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/index.html">
+<meta property="og:title" content="Tapable源码絮语">
+<meta property="og:url" content="http://tmdss.github.io/2018/10/04/Tapable源码絮语/index.html">
 <meta property="og:site_name" content="幸有我来山未孤">
-<meta property="og:description" content="经年不语，似有暮霭讳黄昏 Webpack是文件bundler。 文件打包，忖之，大概流程如下   既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。 有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack  做菜原料准备好，然后进入材料处理阶段。">
+<meta property="og:description" content="经年不语，似有暮霭讳黄昏 絮语 Webpack是文件bundler。 文件打包，忖之，大概流程如下   File Collector 既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。  有些，简单粗暴，直奔主题，扫描源目录，取源目录所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://tmdss.github.io/images/bundler.png">
 <meta property="og:image" content="http://tmdss.github.io/images/tree.png">
-<meta property="og:image" content="http://tmdss.github.io/images/webpack/plugin.png">
 <meta property="og:image" content="http://tmdss.github.io/images/webpack/hooks.png">
-<meta property="og:updated_time" content="2018-10-08T06:54:34.360Z">
+<meta property="og:image" content="http://tmdss.github.io/images/webpack/plugin.png">
+<meta property="og:updated_time" content="2018-10-12T17:35:00.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tapable源码浮光掠影">
-<meta name="twitter:description" content="经年不语，似有暮霭讳黄昏 Webpack是文件bundler。 文件打包，忖之，大概流程如下   既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。 有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack  做菜原料准备好，然后进入材料处理阶段。">
+<meta name="twitter:title" content="Tapable源码絮语">
+<meta name="twitter:description" content="经年不语，似有暮霭讳黄昏 絮语 Webpack是文件bundler。 文件打包，忖之，大概流程如下   File Collector 既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。  有些，简单粗暴，直奔主题，扫描源目录，取源目录所有文件，然后逐一处理，譬如FIS 有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack">
 <meta name="twitter:image" content="http://tmdss.github.io/images/bundler.png">
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/"/>
+  <link rel="canonical" href="http://tmdss.github.io/2018/10/04/Tapable源码絮语/"/>
 
 
 
 
 
-  <title>Tapable源码浮光掠影 | 幸有我来山未孤</title>
+  <title>Tapable源码絮语 | 幸有我来山未孤</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tmdss.github.io/2018/10/04/Tapable源码浮光掠影/">
+    <link itemprop="mainEntityOfPage" href="http://tmdss.github.io/2018/10/04/Tapable源码絮语/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wenber">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tapable源码浮光掠影</h1>
+          <h1 class="post-title" itemprop="name headline">Tapable源码絮语</h1>
         
 
         <div class="post-meta">
@@ -335,91 +335,130 @@
 
       
         <p>经年不语，似有暮霭讳黄昏</p>
+<h3 id="絮语"><a href="#絮语" class="headerlink" title="絮语"></a>絮语</h3><hr>
 <p>Webpack是文件bundler。</p>
 <p>文件打包，忖之，大概流程如下</p>
 <p><img src="/images/bundler.png" alt=""></p>
 <ul>
-<li><p>既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。</p>
-<p>有些，简单粗暴，直奔主题，扫描源目录，取所有文件，然后逐一处理，譬如FIS</p>
-<p>有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack</p>
+<li><p>File Collector</p>
+<p>既然要打包，如做菜尔，首先要准备材料，即筛选出要打包的文件（模块），方法不一而同。</p>
+<ul>
+<li>有些，简单粗暴，直奔主题，扫描源目录，取源目录所有文件，然后逐一处理，譬如FIS</li>
+<li>有些，选若干起点，按图索骥，绘一张模块依赖图，图上模块即为要打包的模块，譬如Webpack</li>
+</ul>
 </li>
-<li><p>做菜原料准备好，然后进入材料处理阶段。比如ES6模块做babel编译，css预处理语言编译等，将原材料处理为目标环境可运行的样子</p>
+<li><p>File Processor</p>
+<p>做菜原料准备好，然后分别进入各材料处理阶段。比如ES6模块做babel编译，css预处理语言编译等，将原材料处理为目标环境可运行的样子</p>
 </li>
-<li><p>处理完的原料，需再做混合翻炒，依规做模块的合并或分离</p>
+<li><p>Code Spliter</p>
+<p>处理完的原料，需再做混合翻炒，依规做模块的合并或分离。还可能做些勾芡。</p>
 </li>
-<li><p>经过上述烹制流程，生成最后的佳肴</p>
+<li><p>Bundle Generater</p>
+<p>经过上述烹制流程，生成最后的佳肴</p>
+<p>​</p>
 </li>
 </ul>
-<p>所以，打包为一流程，流程流转的过程，若以数据为视角来看，其实就是数据的处理流程，流动的每个环节都是直接或间接将数据处理为目标的样子。</p>
-<p>于文件打包这里，整个流程的输出数据几乎都源于输入数据，换言之，bundler，可以理解为存在一个唯一干流的流程，。</p>
-<p>那么，在设计时，所有流程中的处理环节如何组织呢？考虑到各种文件处理千差万别，让用户可以自定义文件的处理方式必是极好的。需一扩展性强的设计方式，满足诸如开闭等成熟的扩展原则。</p>
+<p>所以，打包的流程，是各个环节流转的过程，若以数据为视角来看，是数据的处理流程，流动的每个环节都是直接或间接将数据处理为目标的样子。</p>
+<p>那么，在设计时，所有流程中的环节如何组织呢？考虑到各种文件的处理千差万别，让用户可以自定义文件的处理方式必是极好的。需一扩展性强的设计方式，满足诸如开闭等成熟的扩展原则。</p>
 <p>流程中的各个环节流转，如西伯利亚寒流南下，经过暖地，会带一些暖意，经过潮湿，会带几分湿气，在抵达我们住所的路上，可以加各种处理。每个环节都像有个钩子一样，可以挂上各种处理器，今天天气闷热，我们可以挂上寒冷的处理器，明天可以挂上和煦芬芳的处理。如此的流转体系，用户可以在任何环节挂载自定义的处理器，极高的扩展性。</p>
 <p>Webpack大抵如此，他的扩展体系所依托的实现库是：Tapable</p>
+<h3 id="Tapable"><a href="#Tapable" class="headerlink" title="Tapable"></a>Tapable</h3><hr>
 <p>Tapable比上面描述得钩子更灵活，有点像树</p>
 <p><img src="/images/tree.png" alt=""></p>
-<p>树干上有许多钩子可以挂载分支，分支又可以作为新的主干继续生成分支，子子孙孙可无穷尽，有些像分型。</p>
-<p><img src="/images/webpack/plugin.png" alt=""></p>
+<p>树干上有许多钩子可以挂载分支（回调），分支又可以作为新的主干继续生成分支，子子孙孙无穷匮也。</p>
 <p><img src="/images/webpack/hooks.png" alt=""></p>
-<p>Tapable有两个大版本，webpack1-3使用T的0.x版，webpack4使用1.0版本，两版api不兼容，所以webpack4流程实现和插件实现里，常见两版的兼容代码。本文仅涉及1.0版本。</p>
-<p>Tapable的实现，类似订阅/发布模式（比如EventEmitter），每个钩子（hook）为一个可订阅的消息中心，webpack的每个plugin都可以进行订阅，在流程的适当时，会被触发，执行订阅者的处理逻辑。</p>
-<p>依订阅者们的执行方式不同，分为六种Hook（在lib/index.js中）：</p>
+<p>Tapable有两个大版本，webpack1-3使用T的0.x版，webpack4使用1.0版本，两版api不兼容，所以在webpack4的流程实现和插件实现里，常见旧版的兼容代码，这些代码会在webpack5中移除。本文仅涉及最新的1.0版本。</p>
+<p>Tapable的实现，类似订阅/发布模式（比如EventEmitter），每个钩子（hook）为一个可订阅的消息中心，webpack的每个plugin，都是在订阅Hook，并在流程的适当时，触发回调，执行订阅者（plugin）的处理逻辑。</p>
+<p><img src="/images/webpack/plugin.png" alt=""></p>
+<h3 id="Hook"><a href="#Hook" class="headerlink" title="Hook"></a>Hook</h3><hr>
+<p>依回调们的执行方式不同，分为六种Hook（在lib/index.js中）：</p>
 <ul>
-<li>SyncHook</li>
-<li>SyncBailHook</li>
-<li>SyncWaterfallHook</li>
-<li>SyncLoopHook</li>
-<li>AsyncParallelHook</li>
-<li>AsyncParallelBailHook</li>
-<li>AsyncSeriesHook</li>
-<li>AsyncSeriesBailHook</li>
-<li>AsyncSeriesWaterfallHook</li>
+<li>SyncHook              串行同步执行回调</li>
+<li>SyncBailHook                串行同步执行回调，遇到返回值，则直接返回，跳过剩下的回调</li>
+<li>SyncWaterfallHook      串行同步执行回调，上一个回调的返回值作为下一个回调的入参</li>
+<li>SyncLoopHook             串行同步执行回调，若回调有返回值，则循环执行，否则跳出循环</li>
+<li>AsyncParallelHook       异步并发执行回调</li>
+<li>AsyncParallelBailHook 异步并发执行，若遇到返回值，则跳过其他回调</li>
+<li>AsyncSeriesHook          异步串行执行回调</li>
+<li>AsyncSeriesBailHook   异步串行执行，若遇到返回值，则跳过其他回调</li>
+<li>AsyncSeriesWaterfallHook  异步串行执行，上一个回调的返回值作为下一个回调的入参</li>
 </ul>
 <p>还有两种聚合Hook</p>
 <ul>
-<li>HookMap</li>
-<li>MultiHook</li>
+<li><p>HookMap    </p>
+<p>Hook的map，定义时传入生成Map value（即Map中的Hook）的factory。</p>
+<p>应用场景一般是流程中的某个具名Hook，分多种类型的场景。比如解析器resolver，可能为module路径的解析器，也可能是loader的路径解析器</p>
+</li>
+<li><p>MultiHook</p>
+<p>Hook的数组，订阅时每个Hook都会被订阅。用于给webpack传入多个配置时，MultiCompiler编译流程</p>
+<p>​</p>
+</li>
 </ul>
-<p>所有Hook均继承于基类Hook，采用模板设计模式，compile等为抽象方法，下文述。上文说，Hook实现的功能即是<br>        让用户订阅，并在触发时执行订阅的逻辑</p>
+<p>所有Hook均继承于基类Hook，采用模板设计模式，compile等为抽象方法，下文述。</p>
+<h3 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h3><hr>
+<p>上文说，Hook实现的功能即是</p>
+<pre><code>让用户订阅，并在触发时执行订阅的逻辑
+</code></pre><p>事件订阅的本质：存储订阅数据和回调，待合适时机执行回调</p>
+<p>​    </p>
 <p>Hook有三种订阅方式</p>
 <ul>
-<li>tap</li>
-<li>tapAsync</li>
-<li>tapPromse</li>
+<li><p>tap</p>
+</li>
+<li><p>tapAsync</p>
+</li>
+<li><p>tapPromse</p>
+<p>​<br>订阅代码为</p>
+</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hookName.tap(&apos;tapName&apos;, fn)</span><br></pre></td></tr></table></figure>
+<p>以上订阅了名为hookName的Hook，该订阅的名字为tapName，处理逻辑为fn</p>
 <p>去掉繁冗的边界条件逻辑（以下同）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tap(options, fn) &#123;</span><br><span class="line">		if(typeof options === &quot;string&quot;)</span><br><span class="line">			options = &#123; name: options &#125;;</span><br><span class="line">		</span><br><span class="line">        //结构为：&#123; name: &apos;name&apos;, type: &apos;sync&apos;, fn: fn &#125;</span><br><span class="line">		options = Object.assign(&#123; type: &quot;sync&quot;, fn: fn &#125;, options);</span><br><span class="line">		</span><br><span class="line">		options = this._runRegisterInterceptors(options);</span><br><span class="line">		this._insert(options);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>tap(‘a’, fn)，即订阅了该Hook，该订阅的名字为a，处理逻辑为fn。内部记录该订阅的最终数据结构为{ name: ‘a’, type: ‘sync’, fn: fn, before: ‘b’, stage: 0 }。其中type用来标识tapAsync和tapPromse。下面有个方法：_runRegisterInterceptors，观输入输出便知它是用来加工options的。</p>
+<p>该订阅的内部数据结构为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">	name: &apos;a&apos;,</span><br><span class="line">    type: &apos;sync&apos;,	//标识tap、tapAsync和tapPromse</span><br><span class="line">    fn: fn,			</span><br><span class="line">    before: &apos;b&apos;,	// 在a之前的订阅有哪些，用来确定该回调位于回调数组中的位置</span><br><span class="line">    stage: 0		// 订阅回调的优先级，和before作用类似</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，如果需要订阅一个Hook，但订阅时webpack内部已经订阅了几个回调，而我们需要把我们的回调调整到webpack默认的回调之前时（比如），可以用before或者stage调整顺序</p>
+<p>_runRegisterInterceptors，观输入输出便知它是用来加工options的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_runRegisterInterceptors(options) &#123;</span><br><span class="line">		for(const interceptor of this.interceptors) &#123;</span><br><span class="line">			if(interceptor.register) &#123;</span><br><span class="line">				const newOptions = interceptor.register(options);</span><br><span class="line">				if(newOptions !== undefined)</span><br><span class="line">					options = newOptions;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return options;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>为该订阅注册拦截器</p>
 <p>拦截器类似于struts的interceptor，在适合AOP应用的场景比较实用，比如ProgressPlugin，对每个Hook做拦截，打印每个Hook订阅和发布时流程的进度百分比。</p>
 <p>那么拦截器来自何处呢？通过Hook的intercept方法注册<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">intercept(interceptor) &#123;</span><br><span class="line">		this.interceptors.push(Object.assign(&#123;&#125;, interceptor));</span><br><span class="line">		if(interceptor.register) &#123;</span><br><span class="line">			for(let i = 0; i &lt; this.taps.length; i++)</span><br><span class="line">				this.taps[i] = interceptor.register(this.taps[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>拦截器的class我理解大致为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Interceptor &#123;</span><br><span class="line"></span><br><span class="line">    // 注册拦截器时调用</span><br><span class="line">    register(subscribeItem) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    tap() &#123;&#125;</span><br><span class="line">    call() &#123;&#125;</span><br><span class="line">    loop() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后调用_intert方法，把该次订阅插入到Hook的订阅队列里，完成订阅。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">_insert(item) &#123;</span><br><span class="line">        //此一段，根据上文options结构里的before和stage字段，决定该订阅在队列里的位置</span><br><span class="line">		let before;</span><br><span class="line">		if(typeof item.before === &quot;string&quot;)</span><br><span class="line">			before = new Set([item.before]);</span><br><span class="line">		else if(Array.isArray(item.before)) &#123;</span><br><span class="line">			before = new Set(item.before);</span><br><span class="line">		&#125;</span><br><span class="line">		let stage = 0;</span><br><span class="line">		if(typeof item.stage === &quot;number&quot;)</span><br><span class="line">			stage = item.stage;</span><br><span class="line">		let i = this.taps.length;</span><br><span class="line">		while(i &gt; 0) &#123;</span><br><span class="line">			i--;</span><br><span class="line">			const x = this.taps[i];</span><br><span class="line">			this.taps[i+1] = x;</span><br><span class="line">			const xStage = x.stage || 0;</span><br><span class="line">			if(before) &#123;</span><br><span class="line">				if(before.has(x.name)) &#123;</span><br><span class="line">					before.delete(x.name);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				if(before.size &gt; 0) &#123;</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			if(xStage &gt; stage) &#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        //确定位置为i，插入</span><br><span class="line">		this.taps[i] = item;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>拦截器的class大致为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Interceptor &#123;</span><br><span class="line"></span><br><span class="line">    // 注册拦截器时调用</span><br><span class="line">    register(subscribeItem) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    tap() &#123;&#125;</span><br><span class="line">    call() &#123;&#125;</span><br><span class="line">    loop() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后调用_intert方法，把该次订阅插入到Hook的订阅队列里，完成订阅。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">_insert(item) &#123;</span><br><span class="line">        //此一段，根据上文options结构里的before和stage字段，决定该订阅在队列里的位置</span><br><span class="line">		let before;</span><br><span class="line">		if(typeof item.before === &quot;string&quot;)</span><br><span class="line">			before = new Set([item.before]);</span><br><span class="line">		else if(Array.isArray(item.before)) &#123;</span><br><span class="line">			before = new Set(item.before);</span><br><span class="line">		&#125;</span><br><span class="line">		let stage = 0;</span><br><span class="line">		if(typeof item.stage === &quot;number&quot;)</span><br><span class="line">			stage = item.stage;</span><br><span class="line">		let i = this.taps.length;</span><br><span class="line">		while(i &gt; 0) &#123;</span><br><span class="line">			i--;</span><br><span class="line">			const x = this.taps[i];</span><br><span class="line">			this.taps[i+1] = x;</span><br><span class="line">			const xStage = x.stage || 0;</span><br><span class="line">			if(before) &#123;</span><br><span class="line">				if(before.has(x.name)) &#123;</span><br><span class="line">					before.delete(x.name);</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				if(before.size &gt; 0) &#123;</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			if(xStage &gt; stage) &#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        //确定位置为i，插入</span><br><span class="line">		this.taps[i] = item;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>插入过程中先确定插入位置，在确定过程中不断移动位置，类似插入排序，所以最后直接插入即可。this.taps即为订阅队列。</p>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><hr>
 <p>订阅的流程有了，那么发布呢？<br>与订阅的三种形式对应，发布亦有三种<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.call = this._call = this._createCompileDelegate(&quot;call&quot;, &quot;sync&quot;);</span><br><span class="line">this.promise = this._promise = this._createCompileDelegate(&quot;promise&quot;, &quot;promise&quot;);</span><br><span class="line">this.callAsync = this._callAsync = this._createCompileDelegate(&quot;callAsync&quot;, &quot;async&quot;);</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// name为call/promise/callAsync，type为sync/promise/async</span><br><span class="line">_createCompileDelegate(name, type) &#123;</span><br><span class="line">    const lazyCompileHook = (...args) =&gt; &#123;</span><br><span class="line">        // codefactory, 生成回调函数</span><br><span class="line">        this[name] = this._createCall(type);</span><br><span class="line">        // 执行回调</span><br><span class="line">        return this[name](...args);</span><br><span class="line">    &#125;;</span><br><span class="line">    return lazyCompileHook;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_createCall(type) &#123;</span><br><span class="line">    //返回调用函数</span><br><span class="line">    return this.compile(&#123;</span><br><span class="line">        taps: this.taps,</span><br><span class="line">        interceptors: this.interceptors,</span><br><span class="line">        // new Hook时传入的参数</span><br><span class="line">        args: this._args,</span><br><span class="line">        type: type</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上为生成发布时的回调函数的过程，关键在于compile函数，如前所述，该函数为模板方法，在每个Hook子类里实现，用于生成Hook发布时的回调方法。所谓lazyCompile，是指在发布时，才调用compile生成回调函数，而非订阅时。</p>
-<p>下面找个简单的子类SyncHook分析其实现的Compile</p>
+<p>以上为生成发布时的回调函数的过程，关键在于compile函数，如前所述，该函数为模板方法，在每个Hook子类里实现，用于生成Hook发布时的回调方法。</p>
+<p>所谓lazyCompile，是指在发布时，才调用compile生成回调函数，而非订阅时。</p>
+<h4 id="编译回调函数模板"><a href="#编译回调函数模板" class="headerlink" title="编译回调函数模板"></a>编译回调函数模板</h4><p>下面找个简单的子类SyncHook分析其实现的Compile</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">compile(options) &#123;</span><br><span class="line">    factory.setup(this, options);</span><br><span class="line">    return factory.create(options);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SyncHookCodeFactory extends HookCodeFactory &#123;</span><br><span class="line">	content(&#123; onError, onResult, onDone, rethrowIfPossible &#125;) &#123;</span><br><span class="line">		return this.callTapsSeries(&#123;</span><br><span class="line">			onError: (i, err) =&gt; onError(err),</span><br><span class="line">			onDone,</span><br><span class="line">			rethrowIfPossible</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const factory = new SyncHookCodeFactory();</span><br></pre></td></tr></table></figure>
 <p>compile组合了一个工厂类SyncHookCodeFactory，该类继承自HookCodeFactory。按图索骥，我们来到了HookCodeFactory。</p>
+<h4 id="HookCodeFactory"><a href="#HookCodeFactory" class="headerlink" title="HookCodeFactory"></a>HookCodeFactory</h4><p>该class生成回调函数代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setup(instance, options) &#123;</span><br><span class="line">    instance._x = options.taps.map(t =&gt; t.fn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>将订阅的所有回调函数放到数组里，挂在Hook实例的_x属性上，备用。</p>
-<p>然后根据不同的调用类型，生成相应的回调函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">create(options) &#123;</span><br><span class="line"></span><br><span class="line">    switch(this.options.type) &#123;</span><br><span class="line"></span><br><span class="line">        case &quot;sync&quot;:</span><br><span class="line">            return new Function(this.args(), &quot;\&quot;use strict\&quot;;\n&quot; + this.header() + this.content(&#123;</span><br><span class="line">                onError: err =&gt; `throw $&#123;err&#125;;\n`,</span><br><span class="line">                onResult: result =&gt; `return $&#123;result&#125;;\n`,</span><br><span class="line">                onDone: () =&gt; &quot;&quot;,</span><br><span class="line">                rethrowIfPossible: true</span><br><span class="line">            &#125;));</span><br><span class="line"></span><br><span class="line">        case &quot;async&quot;:</span><br><span class="line">            return new Function(this.args(&#123;</span><br><span class="line">                after: &quot;_callback&quot;</span><br><span class="line">            &#125;), &quot;\&quot;use strict\&quot;;\n&quot; + this.header() + this.content(&#123;</span><br><span class="line">                onError: err =&gt; `_callback($&#123;err&#125;);\n`,</span><br><span class="line">                onResult: result =&gt; `_callback(null, $&#123;result&#125;);\n`,</span><br><span class="line">                onDone: () =&gt; &quot;_callback();\n&quot;</span><br><span class="line">            &#125;));</span><br><span class="line"></span><br><span class="line">        case &quot;promise&quot;:</span><br><span class="line">            let code = &quot;&quot;;</span><br><span class="line">            code += &quot;\&quot;use strict\&quot;;\n&quot;;</span><br><span class="line">            code += &quot;return new Promise((_resolve, _reject) =&gt; &#123;\n&quot;;</span><br><span class="line">            code += &quot;var _sync = true;\n&quot;;</span><br><span class="line">            code += this.header();</span><br><span class="line">            code += this.content(&#123;</span><br><span class="line">                onError: err =&gt; &#123;</span><br><span class="line">                    let code = &quot;&quot;;</span><br><span class="line">                    code += &quot;if(_sync)\n&quot;;</span><br><span class="line">                    //tag, ??????????</span><br><span class="line">                    code += `_resolve(Promise.resolve().then(() =&gt; &#123; throw $&#123;err&#125;; &#125;));\n`;</span><br><span class="line">                    code += &quot;else\n&quot;;</span><br><span class="line">                    code += `_reject($v&#123;err&#125;);\n`;</span><br><span class="line">                    return code;</span><br><span class="line">                &#125;,</span><br><span class="line">                onResult: result =&gt; `_resolve($&#123;result&#125;);\n`,</span><br><span class="line">                onDone: () =&gt; &quot;_resolve();\n&quot;</span><br><span class="line">            &#125;);</span><br><span class="line">            code += &quot;_sync = false;\n&quot;;</span><br><span class="line">            code += &quot;&#125;);\n&quot;;</span><br><span class="line">            return new Function(this.args(), code);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后根据不同的调用类型，生成相应的回调函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">create(options) &#123;</span><br><span class="line"></span><br><span class="line">    switch(this.options.type) &#123;</span><br><span class="line"></span><br><span class="line">        case &quot;sync&quot;:</span><br><span class="line">            return new Function(this.args(), &quot;\&quot;use strict\&quot;;\n&quot; + this.header() + this.content(&#123;</span><br><span class="line">                onError: err =&gt; `throw $&#123;err&#125;;\n`,</span><br><span class="line">                onResult: result =&gt; `return $&#123;result&#125;;\n`,</span><br><span class="line">                onDone: () =&gt; &quot;&quot;,</span><br><span class="line">                rethrowIfPossible: true</span><br><span class="line">            &#125;));</span><br><span class="line"></span><br><span class="line">        case &quot;async&quot;:</span><br><span class="line">            return new Function(this.args(&#123;</span><br><span class="line">                after: &quot;_callback&quot;</span><br><span class="line">            &#125;), &quot;\&quot;use strict\&quot;;\n&quot; + this.header() + this.content(&#123;</span><br><span class="line">                onError: err =&gt; `_callback($&#123;err&#125;);\n`,</span><br><span class="line">                onResult: result =&gt; `_callback(null, $&#123;result&#125;);\n`,</span><br><span class="line">                onDone: () =&gt; &quot;_callback();\n&quot;</span><br><span class="line">            &#125;));</span><br><span class="line"></span><br><span class="line">        case &quot;promise&quot;:</span><br><span class="line">            let code = &quot;&quot;;</span><br><span class="line">            code += &quot;\&quot;use strict\&quot;;\n&quot;;</span><br><span class="line">            code += &quot;return new Promise((_resolve, _reject) =&gt; &#123;\n&quot;;</span><br><span class="line">            code += &quot;var _sync = true;\n&quot;;</span><br><span class="line">            code += this.header();</span><br><span class="line">            code += this.content(&#123;</span><br><span class="line">                onError: err =&gt; &#123;</span><br><span class="line">                    let code = &quot;&quot;;</span><br><span class="line">                    code += &quot;if(_sync)\n&quot;;</span><br><span class="line">                    code += `_resolve(Promise.resolve().then(() =&gt; &#123; throw $&#123;err&#125;; &#125;));\n`;</span><br><span class="line">                    code += &quot;else\n&quot;;</span><br><span class="line">                    code += `_reject($v&#123;err&#125;);\n`;</span><br><span class="line">                    return code;</span><br><span class="line">                &#125;,</span><br><span class="line">                onResult: result =&gt; `_resolve($&#123;result&#125;);\n`,</span><br><span class="line">                onDone: () =&gt; &quot;_resolve();\n&quot;</span><br><span class="line">            &#125;);</span><br><span class="line">            code += &quot;_sync = false;\n&quot;;</span><br><span class="line">            code += &quot;&#125;);\n&quot;;</span><br><span class="line">            return new Function(this.args(), code);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>this.args 生成回调函数的参数列表。在实例化Hook时: new SyncBailHook([“context”, “entry”])，会传入参数名的列表，就是用于在此时生成回调函数的参数名。</p>
-</li>
-<li><p>this.header   一些公共的准备工作</p>
-</li>
+<li>this.args        生成回调函数的参数列表。在实例化Hook时: new SyncBailHook([“context”, “entry”])，会传入参数名的列表，就是用于在此时生成回调函数的参数名。</li>
+<li>this.header   一些公共的准备工作</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">header() &#123;</span><br><span class="line">    let code = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    // 是否要初始化回调函数的上下文（可以理解为全局变量空间）</span><br><span class="line">    if(this.needContext()) &#123;</span><br><span class="line">        code += &quot;var _context = &#123;&#125;;\n&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        code += &quot;var _context;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 前文有说，_x为Hook的taps，this即Hook实例，因为回调函数的调用上下文为Hook</span><br><span class="line">    code += &quot;var _x = this._x;\n&quot;;</span><br><span class="line">    </span><br><span class="line">    // 如果有拦截器</span><br><span class="line">    if(this.options.interceptors.length &gt; 0) &#123;</span><br><span class="line">        code += &quot;var _taps = this.taps;\n&quot;;</span><br><span class="line">        code += &quot;var _interceptors = this.interceptors;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 如果拦截器有call方法则调用，因为拦截器的call会在Hook的call调用时调用</span><br><span class="line">    for(let i = 0; i &lt; this.options.interceptors.length; i++) &#123;</span><br><span class="line">        const interceptor = this.options.interceptors[i];</span><br><span class="line">        if(interceptor.call) &#123;</span><br><span class="line">            code += `$&#123;this.getInterceptor(i)&#125;.call($&#123;this.args(&#123;</span><br><span class="line">                before: interceptor.context ? &quot;_context&quot; : undefined</span><br><span class="line">            &#125;)&#125;);\n`;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>this.content  生成函数体，该方法在子类中实现。子类根据订阅们回调的执行方式，分别调用几种生成调用流程代码的方法。<br>这是一种好的设计思路，或者说哲学思想，分离不变与变化，变化依情况分而治之，不变则抽象出来，提供给开发者便捷调用。<br>变数</p>
+<li><p>this.content  生成函数体，该方法在子类中实现。子类根据订阅们回调的执行方式，分别调用几种生成调用流程代码的方法。<br>这是一种好的设计思路，或者说思想，分离不变与变化，变化依情况分而治之，不变则抽象出来，提供给开发者便捷调用。</p>
+<p>​</p>
+<p>变数</p>
 <ol>
-<li>调用类型（sync, async, promise）</li>
-<li>流程代码生成（callTapsSeries，callTapsLooping，callTapsParallel）</li>
-<li>流程中各种情况处理方式（onError，onResult，onDone）<br>以上三者为三个环节，内容皆可互相组合，或可自定义内容，变化万千</li>
-</ol>
+<li><p>调用类型（sync, async, promise）</p>
 </li>
-<li><p>callTapsSeries，顺序调用（同步，异步，promise）回调函数，在onDone后调用下一函数，保证顺序执行</p>
+<li><p>流程代码生成（callTapsSeries，callTapsLooping，callTapsParallel）</p>
+</li>
+<li><p>流程中各种情况处理方式（onError，onResult，onDone）</p>
+<p>​</p>
+</li>
+</ol>
+<p>以上三者为三个环节，内容皆可互相组合，或可自定义内容，变化万千</p>
+<p>​</p>
+</li>
+<li><p>callTapsSeries，生成顺序调用（同步，异步，promise）回调函数的代码，在onDone后调用下一函数，保证顺序执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">callTapsSeries(&#123; onError, onResult, onDone, rethrowIfPossible &#125;) &#123;</span><br><span class="line">        </span><br><span class="line">    const next = i =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        // 遍历完调用onDone</span><br><span class="line">        if(i &gt;= this.options.taps.length) &#123;</span><br><span class="line">            return onDone();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        const done = () =&gt; next(i + 1);</span><br><span class="line">        const doneBreak = (skipDone) =&gt; &#123;</span><br><span class="line">            if(skipDone) return &quot;&quot;;</span><br><span class="line">            return onDone();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return this.callTap(i, &#123;</span><br><span class="line">            //三者，可继续可跳出</span><br><span class="line">            onError: error =&gt; onError(i, error, done, doneBreak),</span><br><span class="line">            onResult: onResult &amp;&amp; ((result) =&gt; &#123;</span><br><span class="line">                return onResult(i, result, done, doneBreak);</span><br><span class="line">            &#125;),</span><br><span class="line">            onDone: !onResult &amp;&amp; (() =&gt; &#123;</span><br><span class="line">                return done();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // start flow</span><br><span class="line">    return next(0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>callTap，根据订阅回调的类型，生成执行代码，由于需要拼合Hook的多个订阅回调的代码，所以每个回调的函数名为_fn[index]，结果为_result[index]，以此类推。省去部分异常处理代码。</p>
@@ -427,71 +466,56 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">callTap(tapIndex, &#123; onError, onResult, onDone, rethrowIfPossible &#125;) &#123;</span><br><span class="line">    let code = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">// 顺序调用拦截器的tap方法，生成代码</span><br><span class="line">    for(let i = 0; i &lt; this.options.interceptors.length; i++) &#123;</span><br><span class="line">        const interceptor = this.options.interceptors[i];</span><br><span class="line">        if(interceptor.tap) &#123;</span><br><span class="line">            code += `var _tap$&#123;tapIndex&#125; = $&#123;this.getTap(tapIndex)&#125;;\n`;</span><br><span class="line">            code += `$&#123;this.getInterceptor(i)&#125;.tap($&#123;interceptor.context ? &quot;_context, &quot; : &quot;&quot;&#125;_tap$&#123;tapIndex&#125;);\n`;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// 订阅的回调方法</span><br><span class="line">    code += `var _fn$&#123;tapIndex&#125; = $&#123;this.getTapFn(tapIndex)&#125;;\n`;</span><br><span class="line">    const tap = this.options.taps[tapIndex];</span><br><span class="line">    switch(tap.type) &#123;</span><br><span class="line">        case &quot;sync&quot;:</span><br><span class="line">           </span><br><span class="line">           // 执行回调方法，有些需要返回结果</span><br><span class="line">            if(onResult) &#123;</span><br><span class="line">                code += `var _result$&#123;tapIndex&#125; = _fn$&#123;tapIndex&#125;($&#123;this.args(&#123;</span><br><span class="line">                    before: tap.context ? &quot;_context&quot; : undefined</span><br><span class="line">                &#125;)&#125;);\n`;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                code += `_fn$&#123;tapIndex&#125;($&#123;this.args(&#123;</span><br><span class="line">                    before: tap.context ? &quot;_context&quot; : undefined</span><br><span class="line">                &#125;)&#125;);\n`;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            // 执行后，先调用onResult，传入result，再调用onDone</span><br><span class="line">            if(onResult) &#123;</span><br><span class="line">                code += onResult(`_result$&#123;tapIndex&#125;`);</span><br><span class="line">            &#125;</span><br><span class="line">            if(onDone) &#123;</span><br><span class="line">                code += onDone();</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line"></span><br><span class="line">        case &quot;async&quot;:</span><br><span class="line">            let cbCode = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">            // 异步，所以方法的执行结果通过回调传回，cbCode为订阅回调的回调函数</span><br><span class="line">            if(onResult)</span><br><span class="line">                cbCode += `(_err$&#123;tapIndex&#125;, _result$&#123;tapIndex&#125;) =&gt; &#123;\n`;</span><br><span class="line">            else</span><br><span class="line">                cbCode += `_err$&#123;tapIndex&#125; =&gt; &#123;\n`;</span><br><span class="line"></span><br><span class="line">            cbCode += `if(_err$&#123;tapIndex&#125;) &#123;\n`;</span><br><span class="line">            cbCode += onError(`_err$&#123;tapIndex&#125;`);</span><br><span class="line">            cbCode += &quot;&#125; else &#123;\n&quot;;</span><br><span class="line"></span><br><span class="line">            if(onResult) &#123;</span><br><span class="line">                cbCode += onResult(`_result$&#123;tapIndex&#125;`);</span><br><span class="line">            &#125;</span><br><span class="line">            if(onDone) &#123;</span><br><span class="line">                cbCode += onDone();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            cbCode += &quot;&#125;\n&quot;;</span><br><span class="line">            cbCode += &quot;&#125;&quot;;</span><br><span class="line"></span><br><span class="line">            // 执行回调</span><br><span class="line">            code += `_fn$&#123;tapIndex&#125;($&#123;this.args(&#123;</span><br><span class="line">                before: tap.context ? &quot;_context&quot; : undefined,</span><br><span class="line">                after: cbCode</span><br><span class="line">            &#125;)&#125;);\n`;</span><br><span class="line">            break;</span><br><span class="line"></span><br><span class="line">        case &quot;promise&quot;:</span><br><span class="line">            code += `var _hasResult$&#123;tapIndex&#125; = false;\n`;</span><br><span class="line"></span><br><span class="line">            // 执行回调，拼凑Promise.then( cb, err )形式代码</span><br><span class="line">            code += `_fn$&#123;tapIndex&#125;($&#123;this.args(&#123;</span><br><span class="line">                before: tap.context ? &quot;_context&quot; : undefined</span><br><span class="line">            &#125;)&#125;).then(_result$&#123;tapIndex&#125; =&gt; &#123;\n`;</span><br><span class="line"></span><br><span class="line">            code += `_hasResult$&#123;tapIndex&#125; = true;\n`;</span><br><span class="line">            if(onResult) &#123;</span><br><span class="line">                code += onResult(`_result$&#123;tapIndex&#125;`);</span><br><span class="line">            &#125;</span><br><span class="line">            if(onDone) &#123;</span><br><span class="line">                code += onDone();</span><br><span class="line">            &#125;</span><br><span class="line">            code += `&#125;, _err$&#123;tapIndex&#125; =&gt; &#123;\n`;</span><br><span class="line"></span><br><span class="line">            //如果是then中报错，直接throw, 不走onError</span><br><span class="line">            code += `if(_hasResult$&#123;tapIndex&#125;) throw _err$&#123;tapIndex&#125;;\n`;</span><br><span class="line">            code += onError(`_err$&#123;tapIndex&#125;`);</span><br><span class="line">            code += &quot;&#125;);\n&quot;;</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 流程代码生成结束</span><br><span class="line">    return code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>callTapsLooping，回调返回结果则循环执行，否则结束循环</li>
+<li>callTapsLooping，生成 ” 回调返回结果则循环执行，否则结束循环“ 的流程代码</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">callTapsLooping(&#123; onError, onDone, rethrowIfPossible &#125;) &#123;</span><br><span class="line">    const syncOnly = this.options.taps.every(t =&gt; t.type === &quot;sync&quot;);</span><br><span class="line">    let code = &quot;&quot;;</span><br><span class="line">    if(!syncOnly) &#123;</span><br><span class="line">        code += &quot;var _looper = () =&gt; &#123;\n&quot;;</span><br><span class="line">        code += &quot;var _loopAsync = false;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    code += &quot;var _loop;\n&quot;;</span><br><span class="line">    code += &quot;do &#123;\n&quot;;</span><br><span class="line">    code += &quot;_loop = false;\n&quot;;</span><br><span class="line"></span><br><span class="line">    // 遍历执行拦截器loop</span><br><span class="line">    for(let i = 0; i &lt; this.options.interceptors.length; i++) &#123;</span><br><span class="line">        const interceptor = this.options.interceptors[i];</span><br><span class="line">        if(interceptor.loop) &#123;</span><br><span class="line">            code += `$&#123;this.getInterceptor(i)&#125;.loop($&#123;this.args(&#123;</span><br><span class="line">                before: interceptor.context ? &quot;_context&quot; : undefined</span><br><span class="line">            &#125;)&#125;);\n`;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    code += this.callTapsSeries(&#123;</span><br><span class="line">        onError,</span><br><span class="line">        onResult: (i, result, next, doneBreak) =&gt; &#123;</span><br><span class="line">            let code = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">            // 如果结果不为空，则循环执行回调，否则向下继续执行</span><br><span class="line">            code += `if($&#123;result&#125; !== undefined) &#123;\n`;</span><br><span class="line">            code += &quot;_loop = true;\n&quot;;</span><br><span class="line">            if(!syncOnly)</span><br><span class="line">                code += &quot;if(_loopAsync) _looper();\n&quot;;</span><br><span class="line">            code += doneBreak(true);</span><br><span class="line">            code += `&#125; else &#123;\n`;</span><br><span class="line">            code += next();</span><br><span class="line">            code += `&#125;\n`;</span><br><span class="line"></span><br><span class="line">            return code;</span><br><span class="line">        &#125;,</span><br><span class="line">        onDone: onDone &amp;&amp; (() =&gt; &#123;</span><br><span class="line">            let code = &quot;&quot;;</span><br><span class="line">            code += &quot;if(!_loop) &#123;\n&quot;;</span><br><span class="line">            code += onDone();</span><br><span class="line">            code += &quot;&#125;\n&quot;;</span><br><span class="line">            return code;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    code += &quot;&#125; while(_loop);\n&quot;;</span><br><span class="line">    if(!syncOnly) &#123;</span><br><span class="line">        code += &quot;_loopAsync = true;\n&quot;;</span><br><span class="line">        code += &quot;&#125;;\n&quot;;</span><br><span class="line">        code += &quot;_looper();\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>callTapsParallel，并发执行回调</li>
-</ul>
-<p>callTapsParallel({ onError, onResult, onDone, rethrowIfPossible, onTap = (i, run) =&gt; run() }) {</p>
-<pre><code>let code = &quot;&quot;;
-code += &quot;do {\n&quot;;
-code += `var _counter = ${this.options.taps.length};\n`;
-if(onDone) {
-    code += &quot;var _done = () =&gt; {\n&quot;;
-    code += onDone();
-    code += &quot;};\n&quot;;
+<li><p>callTapsParallel，生成 “ 并发执行回调 ” 的流程代码<br>callTapsParallel({ onError, onResult, onDone, rethrowIfPossible, onTap = (i, run) =&gt; run() }) {</p>
+<p>  let code = “”;<br>  code += “do {\n”;<br>  code += <code>var _counter = ${this.options.taps.length};\n</code>;<br>  if(onDone) {</p>
+<pre><code>code += &quot;var _done = () =&gt; {\n&quot;;
+code += onDone();
+code += &quot;};\n&quot;;
+</code></pre><p>  }<br>  for(let i = 0; i &lt; this.options.taps.length; i++) {</p>
+<pre><code>const done = () =&gt; {
+    if(onDone)
+        return &quot;if(--_counter === 0) _done();\n&quot;;
+    else
+        return &quot;--_counter;&quot;;
+};
+const doneBreak = (skipDone) =&gt; {
+    if(skipDone || !onDone)
+        return &quot;_counter = 0;\n&quot;;
+    else
+        return &quot;_counter = 0;\n_done();\n&quot;;
 }
-for(let i = 0; i &lt; this.options.taps.length; i++) {
-    const done = () =&gt; {
-        if(onDone)
-            return &quot;if(--_counter === 0) _done();\n&quot;;
-        else
-            return &quot;--_counter;&quot;;
-    };
-    const doneBreak = (skipDone) =&gt; {
-        if(skipDone || !onDone)
-            return &quot;_counter = 0;\n&quot;;
-        else
-            return &quot;_counter = 0;\n_done();\n&quot;;
-    }
-    code += &quot;if(_counter &lt;= 0) break;\n&quot;;
-    code += onTap(i, () =&gt; this.callTap(i, {
-        onError: error =&gt; {
-            let code = &quot;&quot;;
-            code += &quot;if(_counter &gt; 0) {\n&quot;;
-            code += onError(i, error, done, doneBreak);
-            code += &quot;}\n&quot;;
-            return code;
-        },
-        onResult: onResult &amp;&amp; ((result) =&gt; {
-            let code = &quot;&quot;;
-            code += &quot;if(_counter &gt; 0) {\n&quot;;
-            code += onResult(i, result, done, doneBreak);
-            code += &quot;}\n&quot;;
-            return code;
-        }),
-        onDone: !onResult &amp;&amp; (() =&gt; {
-            return done();
-        }),
-        rethrowIfPossible
-    }), done, doneBreak);
-}
-code += &quot;} while(false);\n&quot;;
-return code;
-</code></pre><p>}</p>
-<ul>
-<li>SyncHook  串行同步执行回调</li>
-<li>SyncBailHook  串行同步执行回调，遇到返回值不为null，则跳过剩下的回调</li>
-<li>SyncWaterfallHook 串行同步执行回调，上一个回调的返回值作为下一个回调的入参</li>
-<li>SyncLoopHook  串行同步执行回调，若回调有返回值，则循环执行，否则跳出循环</li>
-<li>AsyncParallelHook 异步并发执行</li>
-<li>AsyncParallelBailHook 异步并发执行，若遇到返回值，则跳过其他回调</li>
-<li>AsyncSeriesHook   异步串行执行</li>
-<li>AsyncSeriesBailHook   异步串行执行，若遇到返回值，则跳过其他回调</li>
-<li>AsyncSeriesWaterfallHook  异步串行执行，上一个回调的返回值作为下一个回调的入参</li>
+code += &quot;if(_counter &lt;= 0) break;\n&quot;;
+code += onTap(i, () =&gt; this.callTap(i, {
+    onError: error =&gt; {
+        let code = &quot;&quot;;
+        code += &quot;if(_counter &gt; 0) {\n&quot;;
+        code += onError(i, error, done, doneBreak);
+        code += &quot;}\n&quot;;
+        return code;
+    },
+    onResult: onResult &amp;&amp; ((result) =&gt; {
+        let code = &quot;&quot;;
+        code += &quot;if(_counter &gt; 0) {\n&quot;;
+        code += onResult(i, result, done, doneBreak);
+        code += &quot;}\n&quot;;
+        return code;
+    }),
+    onDone: !onResult &amp;&amp; (() =&gt; {
+        return done();
+    }),
+    rethrowIfPossible
+}), done, doneBreak);
+</code></pre><p>  }<br>  code += “} while(false);\n”;<br>  return code;<br>  }</p>
+</li>
 </ul>
-<p>夜深影沉，未完待续</p>
+<h3 id="Someting"><a href="#Someting" class="headerlink" title="Someting"></a>Someting</h3><hr>
+<p>回调函数工厂，有很多拼代码字符串的逻辑，符合webpack的一贯风格，当然此处只是入门级别，我们即将在module的template渲染时迎接规模盛大且片段分散的代码字符串拼接逻辑。</p>
+<p>非好的可维护代码风格，读之佶屈聱牙。</p>
+<p>夜深影沉。。。</p>
 
       
     </div>
@@ -576,8 +600,17 @@ return code;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -621,6 +654,22 @@ return code;
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#絮语"><span class="nav-number">1.</span> <span class="nav-text">絮语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tapable"><span class="nav-number">2.</span> <span class="nav-text">Tapable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hook"><span class="nav-number">3.</span> <span class="nav-text">Hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订阅"><span class="nav-number">4.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布"><span class="nav-number">5.</span> <span class="nav-text">发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译回调函数模板"><span class="nav-number">5.1.</span> <span class="nav-text">编译回调函数模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HookCodeFactory"><span class="nav-number">5.2.</span> <span class="nav-text">HookCodeFactory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Someting"><span class="nav-number">6.</span> <span class="nav-text">Someting</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
